@@ -1,0 +1,314 @@
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0px;
+    height: 100%;
+    font-family: Arial;
+}
+
+.titulo {
+    box-sizing: border-box;
+    background-image: url("images/user.jpg");
+    /*background-position: right;*/
+    background-repeat: no-repeat;
+    background-color: #3399ff;
+    background-position-x: calc(100% - 20px);
+    background-position-y: 3px;
+    height: 65px;
+    width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Arial;
+    font-size: 0.8em;
+    font-weight: bold;
+    padding-right: 85px;
+    padding-top: 15px;
+    color: white;
+    text-align: right;
+
+}
+
+.conteudo {
+    box-sizing: border-box;
+    width: 1280px;
+    height: calc(100% - 65px);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.esquerda {
+    width: 49%;
+    min-height: 100%;
+    padding-top: 10px;
+    float: left;
+}
+
+.direita {
+    width: 51%;
+    min-height: 100%;
+    padding-top: 10px;
+    padding-left: 30px;
+    float: left;
+    border-left: 1px solid #dddddd;
+    font-size: 0.9em;
+
+}
+
+.titulo_esquerda {
+    color: #555555;
+    float: left;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.novaTarefa {
+    float: right;
+}
+
+.btAzul {
+    color: white;
+    background-color: #3399ff;
+}
+
+.btBranco {
+    color: #3399ff;
+    background-color: white;
+}
+
+input[type="button"] {
+    border: none;
+    font-family: Arial;
+    font-size: .9em;
+    font-weight: normal;
+    text-decoration: none;
+    box-shadow: 2px 2px 5px #888888;
+    width: 120px;
+    height: 37px;
+}
+
+input[type="button"]:hover {
+    box-shadow: 4px 4px 4px #888888;
+}
+
+.grupo_titulo_botao_esquerda {
+    height: 50px;
+    padding-right: 30px;
+
+}
+
+.grupo_descricao_codigo_esquerda {
+    min-height: 50px;
+    overflow: hidden;
+}
+
+.resumo_tarefa {
+    background-color: rgb(240, 240, 240);
+    margin-right: 30px;
+    padding: 20px;
+    min-height: 100px;
+    cursor: pointer;
+    margin-bottom: 5px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border-left: 5px solid rgb(240, 240, 240);
+
+}
+
+.resumo_selecionado {
+    border-left: 5px solid #3399ff;
+
+}
+
+
+.resumo_descricao {
+    width: 420px;
+    float: left;
+    font-size: 0.90em;
+    border-left: 5px solid rgb(240, 240, 240);
+}
+
+.resumo_codigo {
+    float: right;
+    font-size: 0.9em;
+}
+
+.atribuidaPara {
+    background-image: url("/images/usuario.png");
+    background-repeat: no-repeat;
+    padding-left: 30px;
+    margin-top: 10px;
+    color: #555555;
+    font-size: 0.9em;
+    height: 25px;
+    padding-top: 5px;
+}
+.atribuidaParaCorrente {
+    background-image: url("/images/usuario_corrente.png");
+    background-repeat: no-repeat;
+    padding-left: 30px;
+    margin-top: 10px;
+    color: #555555;
+    font-size: 0.9em;
+    height: 25px;
+    padding-top: 5px;
+}
+
+
+.CriadaEm {
+
+    background-image: url("/images/calendario.png");
+    background-repeat: no-repeat;
+    padding-left: 30px;
+    color: #555555;
+    font-size: 0.9em;
+    height: 25px;
+    padding-top: 5px;
+
+}
+
+
+.grupo_titulo_botao_direita {
+    height: 50px;
+}
+
+.label_direita {
+    display: inline-block;
+    color: #555555;
+    font-size: 0.9em;
+    font-weight: bold;
+    margin-top:10px;
+}
+.label_atribuicao_direita {
+    display: inline-block;
+    color: #555555;
+    font-size: 0.9em;
+    font-weight: bold;
+    display: inline-block;
+    margin-top:10px;
+}
+
+.grupo_botao_atribuicao_direita {
+    display: inline;
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #dddddd;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #dddddd;
+    opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #dddddd;
+    opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color:    #dddddd;
+}
+
+.resposta_tarefa{
+    background-color: rgb(240, 240, 240);
+    padding: 20px;
+    min-height: 100px;
+
+}
+
+.grupo_titulo_codigo{
+    float:left;
+}
+
+.grupo_titulo_criacao {
+    float: right;
+}
+
+.grupo_codigo_criacao {
+    height: 50px;
+}
+
+.descricao_direita {
+    margin-bottom: 5px;
+}
+
+.resposta{
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 200px;
+}
+textarea{
+    margin-top: 5px;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.grupo_acoes_direita {
+    text-align: right;
+    margin-top: 5px;
+}
+
+.janela_novo {
+    width: 548px;
+    height: 320px;
+    background-color: white;
+}
+
+.titulo_novo {
+    color: #555555;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding-left: 20px;
+}
+
+.grupo_titulo_novo {
+    padding-top: 15px;
+    border-bottom: 1px solid #DDDDDD;
+    height: 50px;
+}
+
+.descricao_novo {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 150px;
+}
+
+.grupo_descricao_novo {
+    padding: 15px;
+}
+
+.grupo_botoes_novo {
+    text-align: right;
+    padding-right: 15px;
+}
+
+.area_atribuidoPara {
+    height: 25px;
+    margin-top: 5px;
+}
+
+.area_criadaEm {
+    height: 25px;
+}
+
+.fechar_edicao {
+    float: right;
+    background-image: url("/images/fechar.png");
+    background-repeat: no-repeat;
+    width: 30px;
+    margin-right: 15px;
+    height: 30px;
+}
+.modal-window{
+    width: 580px;
+    height: 350px;
+}

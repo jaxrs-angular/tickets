@@ -1,0 +1,41 @@
+{
+  "name": "tickets",
+  "description": "Gerenciador de tarefas",
+  "private": true,
+  "moduleType": "amd",
+  "version": "1.0.0",
+  "authors": [
+    "Daniel Cristaldo Martinez <danielcmartinez@hotmail.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "main": [
+    "./dist/main.js"
+  ],
+  "dependencies": {
+    "angular": "1.5.8",
+    "angular-mocks": "1.5.8",
+    "angular-cookies": "1.5.8",
+    "jquery": "2.1.4",
+    "bootstrap": "3.3.6",
+    "angular-bootstrap": "^2.5.0",
+    "requirejs": "2.1.22",
+    "angular-inform": "^0.0.18",
+    "angular-block-ui": "^0.2.2"
+  },
+  "ignore": [
+    ".eslintrc.json",
+    ".gitignore",
+    ".bowerrc",
+    "Gruntfile.js",
+    "karma.conf.js",
+    "vendor",
+    "package.json",
+    "README.md",
+    "test",
+    "tasks",
+    "src"
+  ]
+}

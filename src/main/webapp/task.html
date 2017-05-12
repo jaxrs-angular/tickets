@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Teste</title>
+
+    <script src="/vendor/requirejs/require.js" data-main="./main"></script>
+    <link rel="stylesheet" type="text/css" href="vendor/angular-inform/dist/angular-inform.css"/>
+    <link rel="stylesheet" type="text/css" href="vendor/angular-block-ui/dist/angular-block-ui.css">
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" type="text/css" href="vendor/angular-bootstrap/ui-bootstrap-csp.css">
+    <link rel="stylesheet" type="text/css" href="task.css">
+
+</head>
+<body ng-controller="mainCtrl" class="ng-cloak">
+<div inform class="inform-shadow inform-animate inform-fixed"></div>
+<div class="titulo">Ol&aacute;,<br>{{usuarioCorrente.name}}</div>
+<div class="conteudo">
+    <div class="esquerda">
+        <div class="grupo_titulo_botao_esquerda">
+            <span class="titulo_esquerda">Tarefas dispon&iacute;veis</span>
+            <input class="btAzul novaTarefa" type="button" value="Nova tarefa" ng-click="openWindow()">
+        </div>
+        <div ng-hide="lista.length>0">Nenhuma tarefa dispon&iacute;vel...</div>
+        <div class="resumo_tarefa" ng-repeat="item in lista" ng-class="{resumo_selecionado:isDetail(item)}" ng-click="select(item)">
+            <div>
+                <div class="grupo_descricao_codigo_esquerda">
+                    <div class="resumo_descricao">
+                        {{item.request}}
+                    </div>
+                    <div class="resumo_codigo">{{item.idTask | leftZeros:6}}</div>
+                </div>
+            </div>
+            <div class="area_atribuidoPara">
+                <span ng-class="{atribuidaPara:item.owner.name!=usuarioCorrente.name,atribuidaParaCorrente:item.owner.name==usuarioCorrente.name}" ng-show="item.owner">Atribuida {{(item.owner.name==usuarioCorrente.name)?" à você ":"para "+item.owner.name}}</span>
+            </div>
+            <div class="area_criadaEm">
+                <div class="CriadaEm">Criada em {{item.createdOn | date:'dd/MM/yyyy'}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="direita" ng-show="detalhe">
+        <div class="grupo_titulo_botao_direita">
+            <span class="label_atribuicao_direita" >{{assignedTo()}}</span>
+            <div class="grupo_botao_atribuicao_direita" ng-show="(!detalhe.owner || detalhe.owner.name==usuarioCorrente.name)">
+                &nbsp;|&nbsp;
+                <input class="btAzul" type="button" value="Pegar tarefa" ng-show="!detalhe.owner" ng-click="assign()">
+                <input class="btBranco" type="button" value="Largar tarefa" ng-show="detalhe.owner" ng-click="unassign()">
+            </div>
+            <div class="fechar_edicao" ng-click="detalhe=undefined"></div>
+        </div>
+        <div class="resposta_tarefa">
+            <div class="grupo_codigo_criacao">
+                <div class="grupo_titulo_codigo">
+                    <span class="label_direita">C&oacute;digo</span><br>
+                    <span>{{detalhe.idTask | leftZeros:6}}</span>
+                </div>
+                <div class="grupo_titulo_criacao">
+                    <span class="label_direita">Data de Criação</span><br>
+                    <span>{{detalhe.createdOn | date:'dd/MM/yyyy'}} &agrave; {{detalhe.createdOn | date:'HH:mm'}}</span>
+                </div>
+            </div>
+            <div class="grupo_descricao_direita">
+                <span class="label_direita">Descri&ccedil;&atilde;o</span>
+                <div class="descricao_direita">
+                    {{detalhe.request}}
+                </div>
+            </div>
+            <div>
+                <span class="label_direita">Resposta</span><br>
+                <textarea class="resposta" placeholder="Digite sua resposta para a tarefa" ng-disabled="detalhe.owner.name!=usuarioCorrente.name" ng-model="detalhe.response"></textarea>
+
+            </div>
+            <div class="grupo_acoes_direita" ng-show="detalhe.owner.name==usuarioCorrente.name">
+                <input type="button" class="btBranco" value="Salvar tarefa" ng-click="save()">
+                <input type="button" class="btAzul" value="Completar tarefa" ng-click="complete()">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/ng-template" id="novaTaskWindow.html">
+    <div class="modal-body" id="modal-body">
+        <div class="janela_novo">
+            <div class="modal-header">
+                <span class="titulo_novo">Nova tarefa</span>
+            </div>
+            <div class="grupo_descricao_novo">
+                <span class="label_direita">Descri&ccedil;&atilde;o</span><br>
+                <textarea class="descricao_novo" placeholder="Digite a descrição da tarefa a ser criada" ng-model="request"></textarea>
+            </div>
+            <div class="grupo_botoes_novo">
+                <input type="button" class="btBranco" value="Cancelar" ng-click="cancel()">
+                <input type="button" class="btAzul" value="Criar nova tarefa" ng-disabled="!request" ng-click="save()">
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="confirmDialog.html">
+    <div class="modal-body" id="modal-body2">
+            <div class="modal-header">
+                <span class="titulo_novo">Aten&ccedil;&atilde;o</span>
+            </div>
+            <div class="grupo_descricao_novo">
+                <span>A última modificação não foi salva.</span><br>
+            </div>
+            <div class="modal-footer">
+                <input type="button" class="btBranco" value="Cancelar" ng-click="cancel()">
+                <input type="button" class="btAzul" value="Salvar"  ng-click="save()">
+            </div>
+    </div>
+</script>
+
+</body>
+</html>
